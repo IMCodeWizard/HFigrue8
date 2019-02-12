@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
-class ViewController: UIViewController {
+
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

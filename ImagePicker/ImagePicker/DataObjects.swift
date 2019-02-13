@@ -9,7 +9,7 @@
 import Foundation
 
 
-class ImageData {
+struct ImageData: Codable {
     let imgNumber, imgName: String
     var imgTitle: String
     

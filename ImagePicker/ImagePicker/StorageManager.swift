@@ -14,11 +14,26 @@ class StorageManager {
     private static let COLLECTION = "collection"
     
     class func fetchLocalCollection() -> [ImageData]? {
-        return UserDefaults.standard.object(forKey: COLLECTION) as? [ImageData]
+        
+        guard let data = UserDefaults.standard.object(forKey: COLLECTION) as? Data else {
+            return .none
+        }
+        
+        guard let collection = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [ImageData] else {
+            return .none
+        }
+        
+        return collection
     }
     
     class func storeCollection(_ data: [ImageData]) {
-        UserDefaults.standard.set(data, forKey: COLLECTION)
+        
+        guard let archive = try? NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false) else {
+            print("Cannot archive data")
+            return
+        }
+        
+        UserDefaults.standard.set(archive, forKey: COLLECTION)
         UserDefaults.standard.synchronize()
         print("Collection saved")
     }

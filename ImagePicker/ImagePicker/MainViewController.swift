@@ -30,7 +30,10 @@ class MainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func randomAction(_ sender: UIButton) {
-        
+        DispatchQueue.main.async { [weak self] in
+            let imageData = PickerManager.shared.getRandomImageData()
+            self?.updateUI(imageData)
+        }
     }
     
     @IBAction func selectAction(_ sender: UIButton) {
@@ -46,9 +49,9 @@ class MainViewController: UIViewController {
     
     // MARK: - UI Methods
     
-    func updateUI() {
-        
-        
+    func updateUI(_ imgData: ImageData) {
+        self.textField.text = imgData.imgTitle
+        self.imageView.image = UIImage(named: imgData.imgName)
     }
     
     

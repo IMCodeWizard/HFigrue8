@@ -14,6 +14,9 @@
 		2959C2DC22138E2E0097AECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2959C2DA22138E2E0097AECA /* LaunchScreen.storyboard */; };
 		2959C2E5221390740097AECA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2959C2E4221390740097AECA /* ListViewController.swift */; };
 		2959C2E8221391420097AECA /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2959C2E7221391410097AECA /* CustomView.swift */; };
+		2959C2EA221399FA0097AECA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2959C2E9221399FA0097AECA /* StorageManager.swift */; };
+		2959C2ED2213A3730097AECA /* PickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2959C2EC2213A3730097AECA /* PickerManager.swift */; };
+		2959C2EF2213A53B0097AECA /* DataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2959C2EE2213A53B0097AECA /* DataObjects.swift */; };
 		F3DC11392446DEEA4BB6F517 /* Pods_ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BC6708CA3D07CE278E6A14 /* Pods_ImagePicker.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		2959C2DD22138E2E0097AECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2959C2E4221390740097AECA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2959C2E7221391410097AECA /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		2959C2E9221399FA0097AECA /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		2959C2EC2213A3730097AECA /* PickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerManager.swift; sourceTree = "<group>"; };
+		2959C2EE2213A53B0097AECA /* DataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataObjects.swift; sourceTree = "<group>"; };
 		5D5FE42E9477BD0ED532344A /* Pods-ImagePicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagePicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImagePicker/Pods-ImagePicker.release.xcconfig"; sourceTree = "<group>"; };
 		7CF8A9C18CD3B74147E59A7E /* Pods-ImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImagePicker/Pods-ImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
 		A8BC6708CA3D07CE278E6A14 /* Pods_ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +82,7 @@
 				2959C2D122138E2C0097AECA /* AppDelegate.swift */,
 				2959C2D322138E2C0097AECA /* MainViewController.swift */,
 				2959C2E4221390740097AECA /* ListViewController.swift */,
+				2959C2EB221399FF0097AECA /* Core */,
 				2959C2E6221391410097AECA /* CustomViews */,
 				2959C2E32213903C0097AECA /* Resources */,
 			);
@@ -99,6 +106,16 @@
 				2959C2E7221391410097AECA /* CustomView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		2959C2EB221399FF0097AECA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2959C2E9221399FA0097AECA /* StorageManager.swift */,
+				2959C2EC2213A3730097AECA /* PickerManager.swift */,
+				2959C2EE2213A53B0097AECA /* DataObjects.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		F6A6207F867A58716C81D88A /* Pods */ = {
@@ -234,8 +251,11 @@
 			files = (
 				2959C2D422138E2C0097AECA /* MainViewController.swift in Sources */,
 				2959C2E8221391420097AECA /* CustomView.swift in Sources */,
+				2959C2EA221399FA0097AECA /* StorageManager.swift in Sources */,
 				2959C2D222138E2C0097AECA /* AppDelegate.swift in Sources */,
 				2959C2E5221390740097AECA /* ListViewController.swift in Sources */,
+				2959C2EF2213A53B0097AECA /* DataObjects.swift in Sources */,
+				2959C2ED2213A3730097AECA /* PickerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

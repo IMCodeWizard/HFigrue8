@@ -52,17 +52,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="0.30190496575342468" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="RANDOM"/>
+                                        <connections>
+                                            <action selector="randomAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LcO-1W-YCA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ng9-uY-HaW">
                                         <rect key="frame" x="0.0" y="63" width="240" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="0.30190496575342468" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="SELECT"/>
+                                        <connections>
+                                            <action selector="selectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YoC-Md-fUO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJW-MW-IEg">
-                                <rect key="frame" x="67" y="85" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJW-MW-IEg">
+                                <rect key="frame" x="67" y="85.5" width="240" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -72,9 +77,12 @@
                         <constraints>
                             <constraint firstItem="ve2-xh-9aU" firstAttribute="centerX" secondItem="HVG-jp-6Ds" secondAttribute="centerX" id="90n-j9-8Zn"/>
                             <constraint firstItem="8dy-3o-KLy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="CEo-j3-Nr0"/>
+                            <constraint firstItem="pJW-MW-IEg" firstAttribute="leading" secondItem="BMg-rc-Gc5" secondAttribute="leading" id="Eqk-kv-1ky"/>
+                            <constraint firstItem="BMg-rc-Gc5" firstAttribute="top" secondItem="pJW-MW-IEg" secondAttribute="bottom" constant="8" id="Jpj-hJ-UnX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8dy-3o-KLy" secondAttribute="trailing" constant="68" id="Lrt-87-L61"/>
                             <constraint firstItem="8dy-3o-KLy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="PLe-5F-Cqa"/>
                             <constraint firstItem="ve2-xh-9aU" firstAttribute="trailing" secondItem="HVG-jp-6Ds" secondAttribute="trailing" id="Vhq-Xs-2KL"/>
+                            <constraint firstItem="pJW-MW-IEg" firstAttribute="trailing" secondItem="BMg-rc-Gc5" secondAttribute="trailing" id="jkV-sI-6mw"/>
                             <constraint firstItem="ve2-xh-9aU" firstAttribute="top" secondItem="HVG-jp-6Ds" secondAttribute="bottom" constant="32" id="mxb-ds-wkZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -91,6 +99,10 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Dbb-qF-7u7"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="button1" destination="Fp1-KL-66z" id="2Ad-ZH-eZh"/>
+                        <outlet property="button2" destination="ng9-uY-HaW" id="cp2-cd-nda"/>
+                        <outlet property="imageView" destination="HVG-jp-6Ds" id="ibi-aP-Sav"/>
+                        <outlet property="textField" destination="BMg-rc-Gc5" id="Mjo-jT-arl"/>
                         <segue destination="K4D-d3-Dt1" kind="show" identifier="ListVC" id="eYI-BA-uTY"/>
                     </connections>
                 </viewController>
@@ -111,7 +123,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="129" id="pXz-hI-CTm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="129" id="pXz-hI-CTm">
                                         <rect key="frame" x="0.0" y="28" width="343" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pXz-hI-CTm" id="eEs-eo-uRf">
@@ -174,6 +186,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ghk-6n-JBJ" id="Jwj-2F-D0O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UrB-TZ-wiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

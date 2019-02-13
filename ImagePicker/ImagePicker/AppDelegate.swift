@@ -3,7 +3,7 @@
 //  ImagePicker
 //
 //  Created by Joe Black on 13/02/2019.
-//  Copyright © 2019 High Lander Aviation LTD. All rights reserved.
+//  Copyright © 2019 iOS Ninja. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,7 @@
 //  Ubergetter
 //
 //  Created by Ninja on 11/02/2019.
-//  Copyright © 2019 Ninja. All rights reserved.
+//  Copyright © 2019 iOS Ninja. All rights reserved.
 //
 
 import UIKit

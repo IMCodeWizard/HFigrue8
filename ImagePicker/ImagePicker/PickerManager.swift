@@ -20,6 +20,7 @@ class PickerManager: NSObject {
         /** Try to fetch stored collection if it fails let's genarate one */
         if let collection = StorageManager.fetchLocalCollection() {
             self.collection = collection
+            return
         }
         
         self.collection = generateCollection()
@@ -54,6 +55,10 @@ class PickerManager: NSObject {
     
     func getCollection() -> [ImageData] {
         return self.collection
+    }
+    
+    func saveCollection() {
+        StorageManager.storeCollection(collection)
     }
     
 }

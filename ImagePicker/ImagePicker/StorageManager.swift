@@ -19,22 +19,25 @@ class StorageManager {
             return .none
         }
         
-        guard let collection = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [ImageData] else {
+        guard let collection = try? [ImageData].self.decode(data: data) else {
             return .none
         }
         
+        print("Local collection loaded")
         return collection
     }
     
     class func storeCollection(_ data: [ImageData]) {
+
         
-        guard let archive = try? NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false) else {
-            print("Cannot archive data")
+        guard let encodedData = try? data.encode() else {
+            print("Cannot encode data")
             return
         }
         
-        UserDefaults.standard.set(archive, forKey: COLLECTION)
+        UserDefaults.standard.set(encodedData, forKey: COLLECTION)
         UserDefaults.standard.synchronize()
         print("Collection saved")
+    
     }
 }

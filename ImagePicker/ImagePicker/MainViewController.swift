@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     
     var currentImageData: ImageData?
     let disposeBag = DisposeBag()
+    var alertTimeout: Timer?
     
     // MARK: - Life cycle
 
@@ -39,8 +40,29 @@ class MainViewController: UIViewController {
         }
     }
     
+    func showAlert() {
+        
+        let alert = UIAlertController(title: "Created by: iOS Ninja", message: "The time now is: \(Date().formattedData())", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok.", style: .destructive, handler: { (action) in
+            self.alertTimeout?.invalidate()
+        }))
+        
+        self.alertTimeout = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (timer) in
+            alert.dismiss(animated: true)
+        }
+        
+        self.present(alert, animated: true)
+        
+     
+        
+    }
+    
     
     // MARK: - Actions
+
+    @IBAction func infoAction(_ sender: UIButton) {
+        showAlert()
+    }
     
     @IBAction func randomAction(_ sender: UIButton) {
         randomIt()

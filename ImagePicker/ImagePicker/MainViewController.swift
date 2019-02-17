@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 
 
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
@@ -18,32 +19,49 @@ class MainViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     
+    var currentImageData: ImageData?
+    let disposeBag = DisposeBag()
     
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        randomIt()
     }
     
     
-    // MARK: - Actions
+    //MARK: - Custom Methods
     
-    @IBAction func randomAction(_ sender: UIButton) {
+    func randomIt() {
         DispatchQueue.main.async { [weak self] in
             let imageData = PickerManager.shared.getRandomImageData()
             self?.updateUI(imageData)
         }
     }
     
-    @IBAction func selectAction(_ sender: UIButton) {
-        
+    
+    // MARK: - Actions
+    
+    @IBAction func randomAction(_ sender: UIButton) {
+        randomIt()
     }
+    
+    @IBAction func selectAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ListVC", sender: nil)
+    }
+    
     
     // MARK: - Rx Hanlder
     
-    func rxHanlder() {
+    func rxHanlder(_ observable: Observable<ImageData?>) {
         
+        observable.subscribe(onNext: { [weak self] imageData in
+            if let image = imageData {
+                self?.updateUI(image)
+            }
+        }).disposed(by: disposeBag)
     }
     
     
@@ -61,7 +79,20 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ListVC" {
+            //TODO: - Rx Handler
+            let listVC = segue.destination as! ListViewController
+            
+            self.rxHanlder(listVC.selectedImageData)
+        }
+        
     }
     
 }
 
+extension MainViewController: UITextFieldDelegate {
+    
+    
+    
+    
+}

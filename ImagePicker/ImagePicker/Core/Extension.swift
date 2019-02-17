@@ -22,3 +22,13 @@ extension Encodable {
         return try encoder.encode(self)
     }
 }
+
+extension Date {
+    
+    func formattedData() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yy HH:mm"
+        return formatter.string(from: self)
+    }
+    
+}

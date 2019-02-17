@@ -99,7 +99,11 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="wiA-QG-Dav">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Dbb-qF-7u7"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Dbb-qF-7u7">
+                            <connections>
+                                <action selector="infoAction:" destination="BYZ-38-t0r" id="Cxe-cR-0Vd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="button1" destination="Fp1-KL-66z" id="2Ad-ZH-eZh"/>

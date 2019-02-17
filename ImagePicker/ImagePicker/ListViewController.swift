@@ -14,33 +14,32 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     var tableDataCollection: [ImageData]?
-    
     let selectedImageDataVariable = Variable<ImageData?>(nil)
-    var selectedImageData: Observable<ImageData?> {
-        return selectedImageDataVariable.asObservable()
-    }
+    var selectedImageData: Observable<ImageData?> { return selectedImageDataVariable.asObservable() }
 
+    
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
         setupTableDataCollection()
     }
     
     
+    //MARK: - Custom Methods
+    
     func setupTableDataCollection() {
         
         self.tableDataCollection = PickerManager.shared.getCollection()
         self.tableView.reloadData()
-    
     }
 
 }
 
-
+//MARK: -
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +68,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
+//MARK: -
 class CustomCell: UITableViewCell {
     
     @IBOutlet weak var labelImageNumb: UILabel!

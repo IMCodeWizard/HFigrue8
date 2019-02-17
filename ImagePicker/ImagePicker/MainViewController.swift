@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 
-
-
 class MainViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
@@ -68,6 +66,7 @@ class MainViewController: UIViewController {
     // MARK: - UI Methods
     
     func updateUI(_ imgData: ImageData) {
+        self.currentImageData = imgData
         self.textField.text = imgData.imgTitle
         self.imageView.image = UIImage(named: imgData.imgName)
     }
@@ -80,19 +79,26 @@ class MainViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ListVC" {
-            //TODO: - Rx Handler
             let listVC = segue.destination as! ListViewController
-            
             self.rxHanlder(listVC.selectedImageData)
         }
-        
     }
     
 }
 
+
+//MARK: -
 extension MainViewController: UITextFieldDelegate {
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        guard let text = textField.text else { return print("No text") }
+        self.currentImageData?.imgTitle = text
+    }
     
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
